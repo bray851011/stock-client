@@ -1,0 +1,53 @@
+.navbar-container {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    // margin-bottom: 20px;
+    display: flex;  // Establishes a flex container
+    justify-content: center;  // Centers the child horizontally
+    align-items: center;  // Centers the child vertically
+    background-color: white;
+    font-family: 'Yuji Syuku', serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Horizontal offset, vertical offset, blur radius, color */
+    // margin: 0 auto; /* Centers the div horizontally */
+    z-index: 1000;
+
+    .navigation {
+        max-width: 1300px;
+        height: 100%;
+        width: 100%; /* Use full width until the max-width is reached */
+        display: flex;  // Establishes a flex container
+        justify-content: space-between;  // Centers the child horizontally
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 18px;
+        }
+
+        .links-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .nav-link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 0px 15px;
+                cursor: pointer;
+                font-size: 18px;
+                // display: inline-block;
+                transition: transform 0.3s ease;
+            }
+
+            .nav-link:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

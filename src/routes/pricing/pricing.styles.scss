@@ -1,0 +1,62 @@
+.pricing {
+    // background-color: gray;
+    height: 100vh;
+    display: flex;  // Establishes a flex container
+    justify-content: center;  // Centers the child horizontally
+    align-items: center;  // Centers the child vertically
+    
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items:  center;
+        height: 100%;
+        width: 100%;
+        max-width: 1300px;
+        
+        .left, .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:  flex-start;
+            border: 1px solid gray; /* 2px thick, solid, black border */
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fffafa;
+            .h-line {
+                height: 1px;              /* Line width */
+                background-color: #ccc;  /* Line color */
+                width: 100%;           /* Adjust based on your needs */
+            }
+            li {
+                margin: 5px 0 15px 0;
+                animation: slideInFromRight 1s ease-out forwards;
+            }
+
+            .centered {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items:  flex-end;
+            }
+        }
+
+        .v-line {
+            width: 1px;              /* Line width */
+            background-color: #ccc;  /* Line color */
+            height: 60%;           /* Adjust based on your needs */
+        }
+    }
+}
+
+
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateY(100%); /* Start off-screen to the right */
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
