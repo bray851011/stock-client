@@ -1,0 +1,24 @@
+.login {
+    // background-color: gray;
+    height: 100vh;
+    width: 100vw;
+    display: flex;  // Establishes a flex container
+    justify-content: center;  // Centers the child horizontally
+    align-items: center;  // Centers the child vertically
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items:  flex-start;
+        border: 1px solid gray; /* 2px thick, solid, black border */
+        border-radius: 10px;
+        background-color: #fffafa;
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items:  center;
+        }
+    }
+}
