@@ -39,8 +39,13 @@ const SignInForm = (props) => {
     return (
         <div className="login">  
             <div className="form-container">
+
                 <h1>Login</h1>
-                <form onSubmit={ handleSubmit }>
+
+                <div className='h-line'></div>
+
+
+                <form className="form" onSubmit={ handleSubmit }>
                     <FormInput
                         label="Email" 
                         type="email" 
@@ -61,8 +66,8 @@ const SignInForm = (props) => {
 
                     
 
-                    <div className="button-container">
-                        <Button >
+                    <div className="b-container">
+                        <Button style={{ marginRight: '10px' }}>
                             Login
                         </Button>
                         <Button onClick={() => props.onFormSwitch('register')}>
@@ -70,9 +75,9 @@ const SignInForm = (props) => {
                         </Button>
                     </div>
                     
-                    <div>
+                    <div className="f-container">
                         <Link to="../forget-password">
-                            Forget password
+                            Forget password?
                         </Link>
                     </div>
                 </form>

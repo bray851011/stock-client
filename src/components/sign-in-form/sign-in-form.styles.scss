@@ -13,12 +13,32 @@
         border: 1px solid gray; /* 2px thick, solid, black border */
         border-radius: 10px;
         background-color: #fffafa;
+        padding: 0 20px 0 20px;
 
-        .button-container {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items:  center;
+        .h-line {
+            height: 1px;              /* Line width */
+            background-color: #ccc;  /* Line color */
+            width: 100%;           /* Adjust based on your needs */
         }
+
+        .form {
+           
+            
+            .b-container {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items:  center;
+            }
+            .f-container {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items:  center;
+                margin: 10px 0 10px 0;
+                text-decoration: underline;
+            }
+        }
+
     }
 }
