@@ -1,0 +1,17 @@
+.card {
+    width: 1000px;
+    height: auto;
+    display: flex;  // Establishes a flex container
+    justify-content: space-evenly;  // Centers the child horizontally
+    align-items: center;  // Centers the child vertically
+    transition: transform 0.2s; /* Animation */
+
+}
+
+.card:hover {
+    transform: scale(1.03); /* Scale up the box */
+    border-color: rgb(51, 51, 51);
+    border-style: solid;
+    border-width: bold;
+    border-radius: 5px;
+}
