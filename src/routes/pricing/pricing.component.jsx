@@ -2,42 +2,38 @@ import CountUp from 'react-countup';
 import Button from '../../components/button/button.component';
 
 import './pricing.styles.scss'
+import ProductTable from '../../components/table/product-table/product-table.component';
 
 const Pricing = () => {
 
     return (
         <div className='pricing'>
-            <div className='container'>
+            <div className='upside'>
                 <div className='left'>
+                    <h1>Basic Version</h1>
+                    <div className='h-line'></div>
                     <div className='centered'>
+                        <h2>$<CountUp end={5.99} decimals={2} duration={1.5} /></h2>
                         <h1>$<CountUp end={3.99} decimals={2} duration={1.5} /></h1>
                         <p> /month</p>
                     </div>
-                    <div className='h-line'></div>
-                    <ul>
-                        <li>Recieve daily notificaiton</li>
-                    </ul>
-                    <div className='centered'>
-                        <Button>Subscribe</Button>
-                    </div>  
                 </div>
-
                 <div className='v-line'></div>
 
                 <div className='right'>
+                    <h1>Pro Version</h1>
+                    <div className='h-line'></div>
                     <div className='centered'>
+                        <h2>$<CountUp end={9.99} decimals={2} duration={1.5} /></h2>
                         <h1>$<CountUp end={7.99} decimals={2} duration={1.5} /></h1>
                         <p> /month</p>
-                    </div>
-                    <div className='h-line'></div>
-                    <ul>
-                        <li>Recieve daily notificaiton</li>
-                        <li className='li2'>Recieve notification when I bought or sell stocks</li>
-                        <li id='li3'>Able to view my live holding</li>
-                    </ul>
-                    <div className='centered'>
-                        <Button>Subscribe</Button>
                     </div>  
+                </div>
+            </div>
+
+            <div className='downside'>
+                <div className='container'>
+                    <ProductTable />
                 </div>
             </div>
         </div>

@@ -1,0 +1,19 @@
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 8vh; /* Set a fixed height for each cell */
+    text-align: center; /* Center the text horizontally */
+    vertical-align: middle; /* Center the text vertically */
+  }
+  
+  th:first-child, td:first-child {
+    width: 20vw; /* Set the first column to be wider */
+  }
+  
+  th:not(:first-child), td:not(:first-child) {
+    width: 10vw; /* Adjust the width of other columns */
+  }
+
+span {
+    font-weight: bold;
+}
