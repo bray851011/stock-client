@@ -4,18 +4,18 @@ import Button from "../button/button.component";
 
 import axios from "axios";
 
+import './sign-up-form.styles.scss'
+
 const defaultFormFields = {
-    displayLastName: '',
-    displayFirstName: '',
+    name: '',
     email: '',
-    phoneNumber: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
 }
 
 const SignUpForm = (props) => {
     const [formFields, setFormFields] = useState(defaultFormFields);
-    const { displayFirstName, displayLastName, email, phoneNumber, password, confirmPassword} = formFields;
+    const { name, email, password, confirmPassword } = formFields;
         
     // console.log(formFields);
 
@@ -29,57 +29,55 @@ const SignUpForm = (props) => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/users/register', {
-                firstName: displayFirstName,
-                lastName: displayLastName,
-                email: email,
-                phoneNumber: phoneNumber,
-                password: password,
-                confirmPassword: confirmPassword
-            }, {
+            const response = await axios.post('http://localhost:8000/create_user', 
+            {
+                email: formFields.email,
+                pw: formFields.password,
+                activated: false,
+                name: formFields.name,    
+            }, 
+            {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-        if (response.data.success) {
-            window.location.reload();
-            alert('註冊成功!請至信箱開通帳號，在嘗試登入!');
-            console.log("Successed");
-        } else {
-            // Handle login error
-            alert(response.data.message);
-            console.log('Register failed:', response.data.message);
-        }
+
+            console.log(response)
+            if (response.status === 201) {
+                window.location.reload();
+                alert('Account created! Activate via the email link!');
+                console.log("Successed");
+            } else {
+                // Handle login error
+                // alert(response.data.message);
+                console.log('Register failed');
+            }
+
         } catch (error) {
             console.error('There was an error logging in:', error);
         }
     };
 
     return (
-        <div class="w-96 py-4">
-            <h1 class="flex justify-center pb-4 text-3xl font-bold">加入 P+ League Fantasy!</h1>  
-            <span class="flex justify-center">請用信箱註冊</span>
-            <form onSubmit={ handleSubmit }>
+        <div className="sign-up">
+            <form className="sign-up-form" onSubmit={ handleSubmit } >
+                <div className="header">
+                    <h2>Sign Up</h2>
+                </div>
+
+                <div className="h-line"></div>
+
                 <FormInput
-                    label="姓" 
-                    type="text"
+                    label="Name" 
+                    type="name" 
                     required 
                     onChange={handleChange} 
-                    name="displayLastName" 
-                    value={displayLastName}
+                    name="name" 
+                    value={name}
                 />
 
                 <FormInput
-                    label="名" 
-                    type="text"
-                    required 
-                    onChange={handleChange} 
-                    name="displayFirstName" 
-                    value={displayFirstName}
-                />
-
-                <FormInput
-                    label="信箱" 
+                    label="Email" 
                     type="email" 
                     required 
                     onChange={handleChange} 
@@ -88,17 +86,7 @@ const SignUpForm = (props) => {
                 />
 
                 <FormInput
-                    label="電話" 
-                    type="text" 
-                    id="phone-input" 
-                    required 
-                    onChange={handleChange} 
-                    name="phoneNumber" 
-                    value={phoneNumber}
-                />
-
-                <FormInput
-                    label="密碼" 
+                    label="Password" 
                     type="password" 
                     required 
                     onChange={handleChange} 
@@ -107,7 +95,7 @@ const SignUpForm = (props) => {
                 />
 
                 <FormInput
-                    label="確認密碼" 
+                    label="Confirm Password" 
                     type="password" 
                     required 
                     onChange={handleChange} 
@@ -115,10 +103,17 @@ const SignUpForm = (props) => {
                     value={confirmPassword}
                 />
 
-                <Button buttonType="inverted" type="submit" class="text-white w-full bg-black rounded-md p-3 my-3 hover:outline hover:outline-offset-1 hover:outline-black hover:bg-white hover:text-black">註冊</Button>
-                <Button className="text-sm" onClick={() => props.onFormSwitch('login')}>
-                    已有帳號? 前往登入
-                </Button>
+                <div className="h-line"></div>
+
+                <div className="b-container">
+                    <Button buttonType="inverted" type="submit">
+                        Sign Up
+                    </Button>
+                    <Button buttonType="inverted" onClick={() => props.onFormSwitch('login')}>
+                        Log In
+                    </Button>
+                </div>
+                
             </form>
         </div>
     )

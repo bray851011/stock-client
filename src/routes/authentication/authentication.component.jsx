@@ -17,9 +17,11 @@ const Auth = () => {
 
 
     return (
-        <div class="flex justify-center sm:m-auto m-4 sm:w-2/5 w-auto h-auto p-8 bg-white rounded-md drop-shadow-xl">
+        <div>
             {
-                currentForm === 'login' ?  <SignInForm onFormSwitch={toggleForm}/> : <SignUpForm  onFormSwitch={toggleForm}/>
+                currentForm === 'login' ?  
+                    <SignInForm onFormSwitch={toggleForm}/> : 
+                    <SignUpForm onFormSwitch={toggleForm}/>
             }
         </div>
     );
