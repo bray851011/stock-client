@@ -1,3 +1,122 @@
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh; /* 100% of the viewport height */
+    width: 100%; /* Full width */
+    scroll-snap-align: center ;
+
+}
+
+.performance-section1{
+    height: 100vh;
+    .upside {
+        display: flex;
+        justify-content: center;
+        align-items:  center;
+        padding-top: 80px;
+        height: 20%;
+        width: 100%;
+        background-color: rgb(84, 255, 141);
+        .container {
+            max-width: 1300px;
+            height: 100%;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:  center;
+
+            .profit {
+                font-family: "Roboto", sans-serif;
+                font-weight: 300;
+                font-style: italic;
+                font-size: 48px;
+            }
+
+        }
+    }
+    .downside {
+        display: flex;
+        justify-content: center;
+        align-items:  center;
+        height: 80%;
+        width: 100%;
+        background-color: #f8f8f8;
+
+        .container {
+            height: 100%;
+            width: 99vw;
+            display: flex;
+            justify-content: center;
+            align-items:  center;
+            .left {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                align-items:  center;
+                .chart-container {
+                    padding: 0 50px 0 50px;
+                    width: 90%;
+                    height: auto;
+                    // border-color: rgb(51, 51, 51);
+                    // border-style: solid;
+                    // border-width: thin;
+                    // border-radius: 5px;
+                    // margin-bottom: 50px;
+                }
+            }
+
+            .v-line {
+                width: 2px;              /* Line width */
+                background-color: #ccc;  /* Line color */
+                height: 60%;           /* Adjust based on your needs */
+            }
+
+            .right {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                align-items:  center;
+                .chart-container {
+                    padding: 0 50px 0 50px;
+                    width: 90%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}   
+
+.performance-section2 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding-top: 80px;
+    .title {
+        width: 1000px;
+        height: auto;
+        display: flex;  // Establishes a flex container
+        justify-content: space-evenly;  // Centers the child horizontally
+        align-items: center;  // Centers the child vertically
+        background-color: rgb(158, 158, 158);
+    }
+
+    h1 {
+        margin-top: 90px;
+    }
+    h3 {
+        margin-top: 0;
+    }
+
+}
 .performance {
     // background-color: gray;
     // height: 100vh;
@@ -20,15 +139,7 @@
         background-color: #eeeeee;
         margin-bottom: 30px;
         
-        .title {
-            width: 1000px;
-            height: auto;
-            display: flex;  // Establishes a flex container
-            justify-content: space-evenly;  // Centers the child horizontally
-            align-items: center;  // Centers the child vertically
-            background-color: rgb(158, 158, 158);
-        }
-
+        
         .chart-container {
             padding: 50px;
             width: 1000px;
