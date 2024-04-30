@@ -7,7 +7,7 @@
     justify-content: center;  // Centers the child horizontally
     align-items: center;  // Centers the child vertically
     background-color: white;
-    font-family: 'Yuji Syuku', serif;
+    font-family: 'Lato', serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Horizontal offset, vertical offset, blur radius, color */
     // margin: 0 auto; /* Centers the div horizontally */
     z-index: 1000;
@@ -23,7 +23,22 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            height: 100%;
             font-size: 18px;
+            .nav-link{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                .logo{
+                    height: 60%;
+                    width: auto;
+                }
+                span {
+                    font-weight: 1000;
+                    font-size: larger;
+                }
+            }
         }
 
         .links-container {
@@ -40,13 +55,19 @@
                 height: 100%;
                 padding: 0px 15px;
                 cursor: pointer;
-                font-size: 18px;
+                font-weight: 500;
+                font-size: larger;
                 // display: inline-block;
                 transition: transform 0.3s ease;
             }
 
             .nav-link:hover {
                 transform: scale(1.1);
+            }
+            .v-line {
+                width: 0.5px;              /* Line width */
+                background-color: #ccc;  /* Line color */
+                height: 60%;           /* Adjust based on your needs */
             }
         }
     }
