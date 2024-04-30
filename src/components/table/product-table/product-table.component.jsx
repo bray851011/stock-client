@@ -53,34 +53,37 @@ const ProductTable = () => {
 
     // Render the UI for your table
     return (
-        <table {...getTableProps()}>
+        <div className='product'>
+            <table {...getTableProps()}>
 
-            <thead>
-                {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                        ))}
-                    </tr>
-                ))}
-            </thead>
-
-            <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
-                    prepareRow(row)
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map(cell => {
-                                return (
-                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                )
-                            })}
+                <thead>
+                    {headerGroups.map(headerGroup => (
+                        <tr {...headerGroup.getHeaderGroupProps()}>
+                            {headerGroup.headers.map(column => (
+                                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                            ))}
                         </tr>
-                    )
-                })}
-            </tbody>
+                    ))}
+                </thead>
 
-        </table>
+                <tbody {...getTableBodyProps()}>
+                    {rows.map(row => {
+                        prepareRow(row)
+                        return (
+                            <tr {...row.getRowProps()}>
+                                {row.cells.map(cell => {
+                                    return (
+                                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    )
+                                })}
+                            </tr>
+                        )
+                    })}
+                </tbody>
+
+            </table>
+        </div>
+        
     );
 }
 

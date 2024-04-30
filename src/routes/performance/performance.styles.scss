@@ -47,7 +47,7 @@ section {
 
         .container {
             height: 100%;
-            width: 99vw;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items:  center;
@@ -59,14 +59,8 @@ section {
                 // justify-content: center;
                 align-items:  center;
                 .chart-container {
-                    padding: 0 50px 0 50px;
                     width: 90%;
                     height: auto;
-                    // border-color: rgb(51, 51, 51);
-                    // border-style: solid;
-                    // border-width: thin;
-                    // border-radius: 5px;
-                    // margin-bottom: 50px;
                 }
             }
 
@@ -84,7 +78,7 @@ section {
                 // justify-content: center;
                 align-items:  center;
                 .chart-container {
-                    padding: 0 50px 0 50px;
+                    // padding: 0 50px 0 50px;
                     width: 90%;
                     height: auto;
                 }
@@ -98,7 +92,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px;
+    background: linear-gradient(0deg, rgb(212, 255, 226), #f8f8f8);
     .title {
         width: 1000px;
         height: auto;
@@ -106,52 +100,14 @@ section {
         justify-content: space-evenly;  // Centers the child horizontally
         align-items: center;  // Centers the child vertically
         background-color: rgb(158, 158, 158);
+        margin-top: 80px;
     }
 
     h1 {
-        margin-top: 0px;
+        margin-top: 90px;
     }
     h3 {
         margin-top: 0;
     }
 
-}
-.performance {
-    // background-color: gray;
-    // height: 100vh;
-    display: flex;  // Establishes a flex container
-    flex-direction: column;
-    // justify-content: center;  // Centers the child horizontally
-    align-items: center;  // Centers the child vertically
-    
-    .container {
-        width: 1300px;
-        height: auto;
-        display: flex;  // Establishes a flex container
-        flex-direction: column;
-        // justify-content: center;  // Centers the child horizontally
-        align-items: center;  // Centers the child vertically
-        margin-top: 90px;
-        // border: 1px solid gray; /* 2px thick, solid, black border */
-        border-radius: 10px;
-        padding: 20px;
-        background-color: #eeeeee;
-        margin-bottom: 30px;
-        
-        
-        .chart-container {
-            padding: 50px;
-            width: 1000px;
-            border-color: rgb(51, 51, 51);
-            border-style: solid;
-            border-width: thin;
-            border-radius: 5px;
-            margin-bottom: 50px;
-        }
-        .h-line {
-            height: 1px;              /* Line width */
-            background-color: black;  /* Line color */
-            width: 100%;           /* Adjust based on your needs */
-        }
-    }
 }

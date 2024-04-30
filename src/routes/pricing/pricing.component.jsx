@@ -1,5 +1,4 @@
 import CountUp from 'react-countup';
-import Button from '../../components/button/button.component';
 
 import './pricing.styles.scss'
 import ProductTable from '../../components/table/product-table/product-table.component';
