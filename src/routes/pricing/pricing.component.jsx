@@ -17,6 +17,7 @@ const Pricing = () => {
                         <p> /month</p>
                     </div>
                 </div>
+                
                 <div className='v-line'></div>
 
                 <div className='right'>

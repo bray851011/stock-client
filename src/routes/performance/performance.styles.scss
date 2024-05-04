@@ -17,7 +17,8 @@ section {
         align-items:  center;
         height: 33.3%;
         width: 100%;
-        background-color: rgb(84, 255, 141);
+        background-color: rgb(0, 4, 56);
+
         .container {
             max-width: 1300px;
             height: 100%;
@@ -30,13 +31,15 @@ section {
 
             .profit {
                 font-family: "Roboto", sans-serif;
-                font-weight: 300;
+                font-weight: 500;
                 font-style: italic;
-                font-size: 48px;
+                font-size: 55px;
+                color: rgb(255, 255, 255);
             }
 
         }
     }
+
     .downside {
         display: flex;
         justify-content: center;
