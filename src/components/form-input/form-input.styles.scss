@@ -23,9 +23,9 @@ $main-color: black;
     border: 0.8px solid $sub-color;
     margin: 15px 0;
 
-    // &:focus {
-    //   outline: none;
-    // }
+    &:focus {
+      outline: none;
+    }
 
     &:focus ~ .form-input-label {
       @include shrinkLabel();
@@ -46,9 +46,9 @@ $main-color: black;
     top: 25px;
     transition: 300ms ease all;
 
-    // &.shrink {
-    //   @include shrinkLabel();
-    // }
+    &.shrink {
+      @include shrinkLabel();
+    }
   }
 }
 

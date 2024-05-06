@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
 
 import axios from "axios";
 
@@ -16,14 +15,33 @@ const defaultFormFields = {
 const SignUpForm = (props) => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { name, email, password, confirmPassword } = formFields;
+
+    const [errorPasswordLength, setErrorPasswordLength] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
         
-    // console.log(formFields);
+    useEffect(() => {
+        // console.log(formFields);
+        // Check PW length
+        if (formFields.password.length < 6 && formFields.password.length > 0) {
+            setErrorPasswordLength('Password must be 6+ characters');
+        } else {
+            setErrorPasswordLength('');
+        }
+
+        // Confrim PW
+        if (formFields.password !== formFields.confirmPassword && formFields.confirmPassword !== '') {
+            setErrorPassword('Passwords do not match');
+        } else {
+            setErrorPassword('');
+        }
+
+    }, [formFields]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
+        // console.log(name, value)
         setFormFields({...formFields, [name]: value});
     }
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -42,8 +60,9 @@ const SignUpForm = (props) => {
                 }
             });
 
-            console.log(response)
-            if (response.status === 201) {
+            // console.log(response.status)
+
+            if (response.status === 201 || response.status === 200) {
                 window.location.reload();
                 alert('Account created! Activate via the email link!');
                 console.log("Successed");
@@ -54,6 +73,9 @@ const SignUpForm = (props) => {
             }
 
         } catch (error) {
+            if (error.response.status === 400 ){
+                alert('Email Already Used');
+            }
             console.error('There was an error logging in:', error);
         }
     };
@@ -103,15 +125,21 @@ const SignUpForm = (props) => {
                     value={confirmPassword}
                 />
 
+                {errorPasswordLength && <div className='error-message'>{errorPasswordLength}</div>}
+                {errorPassword && <div className='error-message'>{errorPassword}</div>}
+
                 <div className="h-line"></div>
 
                 <div className="b-container">
-                    <Button buttonType="inverted" type="submit">
-                        Sign Up
-                    </Button>
-                    <Button buttonType="inverted" onClick={() => props.onFormSwitch('login')}>
-                        Log In
-                    </Button>
+                    <button 
+                        type="submit" 
+                        disabled={name === '' || email === '' || password === '' || confirmPassword === '' || errorPassword !== '' || errorPasswordLength !== ''}>
+                        Create
+                    </button>
+                    <button 
+                        onClick={() => props.onFormSwitch('login')}>
+                        Back
+                    </button>
                 </div>
                 
             </form>
