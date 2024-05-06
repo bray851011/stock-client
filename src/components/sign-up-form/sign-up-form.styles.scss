@@ -59,3 +59,19 @@
         }
     }
 }
+
+@media screen and (max-width: 1150px) {
+    .sign-up {
+        .sign-up-form{
+            height: 100%;
+            width: 100%;
+            border: none;
+            .b-container {
+                justify-content: center;  // Centers the child horizontally
+                button {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}
