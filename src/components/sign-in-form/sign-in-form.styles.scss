@@ -5,12 +5,13 @@
     display: flex;  // Establishes a flex container
     justify-content: center;  // Centers the child horizontally
     align-items: center;  // Centers the child vertically
-    .login-form {
+    
+    .form-container {
         height: auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items:  flex-start;
+        justify-content: center;
+        align-items:  center;
         border: 1px solid gray; /* 2px thick, solid, black border */
         border-radius: 10px;
         background-color: #fffafa;
@@ -30,25 +31,65 @@
             margin: 0 0 10px 0;
         }
 
-        .input-group{
+        .b-container {
+            width: 100%;
+            display: flex;  // Establishes a flex container
+            justify-content: space-evenly;  // Centers the child horizontally
+            align-items: center;  // Centers the child vertically
             margin: 10px 0 10px 0;
-            input {
-                height: 20px;
+
+            button {
+                width: 80px;
+                height: 40px;
+                font-family: "Lato", sans-serif;
+                background-color: white;
+                font-weight: 600;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            button:hover {
+                background-color: #ccc;
+            }
+        }
+
+        .f-container {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .link {
+                // margin: 0 0 10px 0;
+                text-decoration: underline;
+                color: blue;
             }
         }
         
-        .b-container {
-            display: flex;  // Establishes a flex container
-            justify-content: center;  // Centers the child horizontally
-            align-items: flex-start;  // Centers the child vertically
-            margin: 10px 0 10px 0;
-        }
-        
-        .link {
-            margin: 0 0 10px 0;
-            text-decoration: underline;
-            color: blue;
-        }
 
+
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .login {
+        .form-container{
+            height: 100%;
+            width: 100%;
+            border: none;
+            .b-container {
+                margin-bottom: 20px;
+                justify-content: center;  // Centers the child horizontally
+                button {
+                    margin: 0 10px;
+                    width: 90px;
+                    height: 50px;
+                    margin: 0 10px;
+                    font-size: medium;
+                }
+            }
+            .f-container {
+                justify-content: center;
+            }
+        }
     }
 }

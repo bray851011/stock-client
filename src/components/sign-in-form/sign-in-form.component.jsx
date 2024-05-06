@@ -38,55 +38,54 @@ const SignInForm = (props) => {
 
     return (
         <div className="login">  
-            <div className="form-container">
+            <form className="form-container" onSubmit={ handleSubmit }>
 
-                <h1>Login</h1>
+                <div className="header">
+                    <h2>Sign In</h2>
+                </div>
+
+                <div className='h-line'></div>
+                <FormInput
+                    label="Email" 
+                    type="email" 
+                    required 
+                    onChange={handleChange} 
+                    name="email" 
+                    value={email}
+                />
+
+                <FormInput
+                    label="Password" 
+                    required 
+                    type="password"
+                    onChange={handleChange} 
+                    name="password" 
+                    value={password}
+                />
 
                 <div className='h-line'></div>
 
+                <div className="b-container">
+                    <button>
+                        Login
+                    </button>
+                    <button onClick={() => props.onFormSwitch('register')}>
+                        Register
+                    </button>
+                </div>
+                
+                <div className='h-line'></div>
 
-                <form className="form" onSubmit={ handleSubmit }>
-                    <FormInput
-                        label="Email" 
-                        type="email" 
-                        required 
-                        onChange={handleChange} 
-                        name="email" 
-                        value={email}
-                    />
+                <div className="f-container">
+                    <Link className="link" to="../forget-password">
+                        Forget Password?
+                    </Link>
+                </div>
+            </form>
 
-                    <FormInput
-                        label="Password" 
-                        required 
-                        type="password"
-                        onChange={handleChange} 
-                        name="password" 
-                        value={password}
-                    />
-
-                    
-
-                    <div className="b-container">
-                        <Button style={{ marginRight: '10px' }}>
-                            Login
-                        </Button>
-                        <Button onClick={() => props.onFormSwitch('register')}>
-                            Register
-                        </Button>
-                    </div>
-                    
-                    <div className="f-container">
-                        <Link to="../forget-password">
-                            Forget password?
-                        </Link>
-                    </div>
-                </form>
-
-                {showModal && (
-                    <ActivationModal close={() => setShowModal(false)} send={handleResend}/>
-                )}
-
-            </div>
+            {showModal && (
+                <ActivationModal close={() => setShowModal(false)} send={handleResend}/>
+            )}
             
         </div>
     )
