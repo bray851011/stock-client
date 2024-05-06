@@ -1,10 +1,18 @@
 import { Outlet, Link } from "react-router-dom";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { AiOutlineStock } from "react-icons/ai";
+import { IoMenu } from "react-icons/io5";
 
 import './navbar.styles.scss'
 
 const Navbar = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <Fragment>
             <div className="navbar-container">
@@ -34,8 +42,35 @@ const Navbar = () => {
                             Sign In
                         </Link>
                     </div>
+
+                    <div className="nav-toggle" onClick={toggleMenu}>
+                        <IoMenu />
+                    </div>
+
+                    
                 </div>
             </div>
+            {isOpen && (
+                <div className="dropdown-links">
+                    <div className='h-line'></div>
+                    <Link className="nav-link" to='/' onClick={toggleMenu}>
+                        Introduction
+                    </Link>
+                    <div className='h-line'></div>
+                    <Link className="nav-link" to='/performance' onClick={toggleMenu}>
+                        Performance
+                    </Link>
+                    <div className='h-line'></div>
+                    <Link className="nav-link" to='/pricing' onClick={toggleMenu}>
+                        Pricing
+                    </Link>
+                    <div className='h-line'></div>
+                    <Link className="nav-link" to='/auth' onClick={toggleMenu}>
+                        Sign In
+                    </Link>
+                    <div className='h-line'></div>
+                </div>
+            )}
             <Outlet/>
         </Fragment>
     )
