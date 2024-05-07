@@ -22,5 +22,12 @@
   }
   table {
     background-color: black;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  th:first-child, td:first-child {
+    width: 10vw; /* Set the first column to be wider */
   }
 }
