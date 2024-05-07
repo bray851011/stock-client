@@ -90,12 +90,12 @@ const TransTable = () => {
                 </tbody>
             </table>
             <div className='b-container'>
-                <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
                     {'Prev'}
-                </Button>
-                <Button onClick={() => nextPage()} disabled={!canNextPage}>
+                </button>
+                <button onClick={() => nextPage()} disabled={!canNextPage}>
                     {'Next'}
-                </Button>
+                </button>
             </div>
         </div>
     );
