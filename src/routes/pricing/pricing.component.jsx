@@ -19,6 +19,8 @@ const Pricing = () => {
                 </div>
                 
                 <div className='v-line'></div>
+                <div className='h-line'></div>
+
 
                 <div className='right'>
                     <h1>Pro Version</h1>

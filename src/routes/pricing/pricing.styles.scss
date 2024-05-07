@@ -19,6 +19,10 @@
             margin-bottom: 20px;
         }
         
+        .h-line {
+            display: none;
+        }
+
         .left, .right {
             display: flex;
             flex-direction: column;
@@ -27,13 +31,6 @@
             margin: 0 100px;
             padding-bottom: 20px;
 
-            
-
-            li {
-                margin: 5px 0 15px 0;
-                animation: slideInFromRight 1s ease-out forwards;
-            }
-            
             h1 {
                 color: rgb(230, 230, 230);
             }
@@ -70,15 +67,66 @@
     }
 }
 
-
-
-@keyframes slideInFromRight {
-    0% {
-      transform: translateY(100%); /* Start off-screen to the right */
-      opacity: 0;
+@media screen and (max-width: 1150px) {
+    .pricing {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        .upside {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items:  flex-start;
+            margin-top: 70px;
+            margin-bottom: 30px;
+            .v-line {
+                display: none;
+            }
+            .h-line {
+                display: flex;
+                align-self: center;
+                height: 0.5px;              /* Line width */
+                background-color: white;  /* Line color */
+                width: 90%;           /* Adjust based on your needs */
+                
+                // margin: 0 0 10px 0;
+            }
+            .left, .right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items:  center;
+                // margin: 0 100px;
+                padding-bottom: 20px;
+                
+                h1 {
+                    color: rgb(230, 230, 230);
+                }
+                .centered {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items:  flex-end;
+                    h2 {
+                        text-decoration: line-through;
+                        margin-right: 5px;
+                        color: lightgray;
+                    }
+                    h1 {
+                        color: red;
+                        font-family: "Roboto", sans-serif;
+                        font-style: italic;
+                    }
+                    p {
+                        color: lightgray;
+    
+                    }
+                }
+            }
+        }
+        .downside {
+            margin-bottom: 30px;
+        
+        }
     }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+}
