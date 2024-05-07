@@ -4,13 +4,14 @@ html {
 }
 
 section {
-    height: 100vh; /* 100% of the viewport height */
+    // height: 100vh; /* 100% of the viewport height */
     width: 100%; /* Full width */
     scroll-snap-align: center ;
 }
 
 .performance-section1{
-    height: 100vh;
+    padding-top: 70px;
+    height: calc(100vh - 70px);
     .upside {
         display: flex;
         justify-content: center;
@@ -25,9 +26,9 @@ section {
             width: 100vw;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
             align-items:  center;
-            padding-bottom: 80px;
+            // padding-bottom: 80px;
 
             .profit {
                 font-family: "Roboto", sans-serif;
@@ -63,7 +64,8 @@ section {
                 align-items:  center;
                 .chart-container {
                     width: 90%;
-                    height: auto;
+                    max-width: 600px;
+                    height: 100%;
                 }
             }
 
@@ -71,6 +73,9 @@ section {
                 width: 2px;              /* Line width */
                 background-color: #ccc;  /* Line color */
                 height: 60%;           /* Adjust based on your needs */
+            }
+            .h-line {
+                display: none;         /* Adjust based on your needs */
             }
 
             .right {
@@ -81,9 +86,9 @@ section {
                 // justify-content: center;
                 align-items:  center;
                 .chart-container {
-                    // padding: 0 50px 0 50px;
                     width: 90%;
-                    height: auto;
+                    max-width: 600px;
+                    height: 100%;
                 }
             }
         }
@@ -95,16 +100,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(0deg, rgb(212, 255, 226), #f8f8f8);
-    .title {
-        width: 1000px;
-        height: auto;
-        display: flex;  // Establishes a flex container
-        justify-content: space-evenly;  // Centers the child horizontally
-        align-items: center;  // Centers the child vertically
-        background-color: rgb(158, 158, 158);
-        margin-top: 80px;
-    }
+    background: lightblue;
+
 
     h1 {
         margin-top: 90px;
@@ -113,4 +110,114 @@ section {
         margin-top: 0;
     }
 
+}
+
+@media screen and (max-width: 1150px) {
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: none;
+    }
+    
+    section {
+        width: 100%; /* Full width */
+        scroll-snap-align: none ;
+    }
+
+    .performance-section1{
+        height: auto;
+        .upside {
+            display: flex;
+            justify-content: center;
+            align-items:  center;
+            height: 33.3%;
+            width: 100%;
+            background-color: rgb(0, 4, 56);
+    
+            .container {
+                max-width: 1300px;
+                height: 100%;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items:  center;
+                padding: 20px 0;
+                // padding-bottom: 80px;
+    
+                .profit {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                    font-size: 55px;
+                    color: rgb(255, 255, 255);
+                }
+    
+            }
+        }
+        .downside {
+            // height: auto;
+            .container {
+                height: 100%;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items:  center;
+                flex-direction: column;
+                .left {
+                    height: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: center;
+                    align-items:  center;
+                    h1 {
+                        height: 20%;
+                    }
+                    .chart-container {
+                        width: 100%;
+                        height: auto;
+                        max-height: 80%;
+                    }
+                }
+    
+                .v-line {
+                    display: none;     /* Adjust based on your needs */
+                }
+                
+                .h-line {
+                    display: flex;
+                    align-self: center;
+                    height: 1px;              /* Line width */
+                    background-color: lightgray;  /* Line color */
+                    width: 90%;           /* Adjust based on your needs */
+                    margin-top: 20px;
+                }
+
+                .right {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 40px;
+                    // justify-content: center;
+                    align-items:  center;
+                    .chart-container {
+                        width: 100%;
+                        height: auto;
+                        max-height: 80%;
+                    }
+                }
+            }
+        }
+    }   
+
+    .performance-section2 {
+        height: calc(100vh - 70px);
+        h1 {
+            margin-top: 10px;
+        }
+        h3 {
+            font-size: medium;
+        }
+    }
 }

@@ -36,7 +36,10 @@ const Performance = () => {
                                 <LineChart />
                             </div>
                         </div>
+                        
                         <div className='v-line'></div>
+                        <div className='h-line'></div>
+
                         <div className='right'>
                             <h1>Monthly Performance</h1>
                             <div className='chart-container'>
@@ -47,7 +50,7 @@ const Performance = () => {
                 </div>
                 
             </section>
-                
+
             <section className='performance-section2'>
                 <h1>Transactions</h1>
 
