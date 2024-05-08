@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import FormInput from "../form-input/form-input.component";
+import sendActivationEmail from "../../services/emailService";
 
+import bcrypt from "bcryptjs";
 import axios from "axios";
 
 import './sign-up-form.styles.scss'
@@ -47,10 +49,11 @@ const SignUpForm = (props) => {
         event.preventDefault();
 
         try {
+            const hashedPassword = await bcrypt.hash(formFields.password, 10);
             const response = await axios.post('http://localhost:8000/create_user', 
             {
                 email: formFields.email,
-                pw: formFields.password,
+                pw: hashedPassword,
                 activated: false,
                 name: formFields.name,    
             }, 
@@ -63,9 +66,10 @@ const SignUpForm = (props) => {
             // console.log(response.status)
 
             if (response.status === 201 || response.status === 200) {
-                window.location.reload();
-                alert('Account created! Activate via the email link!');
+                sendActivationEmail(formFields.name,formFields.email, 'token')
                 console.log("Successed");
+                alert('Account created! Activate via the email link!');
+                // window.location.reload();
             } else {
                 // Handle login error
                 // alert(response.data.message);
