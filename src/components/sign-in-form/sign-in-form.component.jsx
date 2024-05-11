@@ -28,13 +28,56 @@ const SignInForm = (props) => {
         setFormFields({...formFields, [name]: value});
     }
 
-    // 登入
-    const handleSubmit = async (event) => {
+     // 登入
+     const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            // HTTP Post Request
+            const response = await axios.post('http://localhost:3000/users/login', {
+                email: email,
+                password: password
+            }, {
+                headers: {'Content-Type': 'application/json'},
+                withCredentials: true,
+            });
+        if (response.data.success) {
+            if (response.data.user_info.verified){
+                // Update current user
+                setCurrentUser(response.data.user_info);
+                console.log(response.data.user_info);
+
+                // Navigate to profile page if login successfully
+                navigate(`/profile/${response.data.user_info.user_id}`);
+                
+                console.log("Successed");
+            } else {
+                setShowModal(true);
+            }
+            
+        } else {
+            // Handle login error
+            alert(`${response.data.message}`);
+            // console.log('Login failed:', response.data.message);
+        }
+        } catch (error) {
+            console.error('There was an error logging in:', error);
+        }
     };
 
-    // 重寄 帳號開通 email 連結
-    const handleResend = async (event) => {
-    };
+        // 重寄 帳號開通 email 連結
+        const handleResend = async (event) => {
+            event.preventDefault();
+    
+            const response = await axios.post('http://localhost:3000/users/resend', {
+                email: formFields.email,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert(response.data.message);
+            console.log(response)
+        };
 
     return (
         <div className="login">  
@@ -45,6 +88,7 @@ const SignInForm = (props) => {
                 </div>
 
                 <div className='h-line'></div>
+                
                 <FormInput
                     label="Email" 
                     type="email" 

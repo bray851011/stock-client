@@ -66,10 +66,10 @@ const SignUpForm = (props) => {
             // console.log(response.status)
 
             if (response.status === 201 || response.status === 200) {
-                sendActivationEmail(formFields.name,formFields.email, 'token')
+                sendActivationEmail(formFields.name, formFields.email);
                 console.log("Successed");
                 alert('Account created! Activate via the email link!');
-                // window.location.reload();
+                window.location.reload();
             } else {
                 // Handle login error
                 // alert(response.data.message);

@@ -1,10 +1,10 @@
 import emailjs from 'emailjs-com';
 
-const sendActivationEmail = (user, email, activationToken) => {
+const sendActivationEmail = (name, email) => {
   emailjs.send('service_9wdzqye', 'SAAT', {
-    to_name: user,
+    to_name: name,
     to_email: email,
-    activation_link: `https://example.com/activate?token=${activationToken}`
+    activation_link: `http://localhost:8000/activate?name=${name}`
   }, 'alnBYg9S1Fu95lqMp')
     .then((result) => {
       console.log('Email sent successfully:', result.text);
